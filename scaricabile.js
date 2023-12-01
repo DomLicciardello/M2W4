@@ -20,8 +20,6 @@ REQUISITI:
   count: 0 <-- inserisci qui il numero totale delle inserzioni trovate
 }
 
-- da ogni inserzione trovata, elimina i campi "description", "requirements", "benefits" e "company_profile" per semplificare il risultato
-
 - la tua ricerca deve essere "case insensitive" (non deve essere influenzata da lettere maiuscole o minuscole nelle parole cercate). Questo e' possibile trasformando tutto in lettere minuscole con .toLowerCase()
 
 
@@ -145,3 +143,27 @@ searchFunction("dev", "us")
 console.log(searchResult)
 
 //PARTE 2:
+
+/*
+Al click del bottone, il codice deve raccogliere i valori dei due input e darli in pasto alla funzione che hai creato nella parte 1. 
+
+Dopo aver raccolto ed elaborato i dati, e’ il momento di mostrare i risultati sulla pagina: 
+    Puoi scegliere tu se utilizzare un semplice ul / li oppure una tabella 
+    Vai passo per passo e usa molti console.log per capire eventualmente dove sbagli
+    SUGGERIMENTO: ti servira’ un ciclo for!
+*/
+
+let titleInput = document.getElementById("title_search")
+titleInput.addEventListener("keydown", (event) => {
+  console.log (event.key)
+})
+
+let locationInput = document.getElementById("location_search")
+locationInput.addEventListener("keydown", (event) => {
+  console.log (event.key)
+})
+
+let searchButton = document.getElementById("button_search")
+searchButton.addEventListener("click", () => {
+  console.log ("Ho cliccato il pulsante!")
+})
