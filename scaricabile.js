@@ -123,7 +123,6 @@ const jobs = [
   },
 ]
 
-//PARTE 1:
 const searchResult = {
   result: [],
   count: 0,
@@ -135,35 +134,28 @@ function searchFunction (title,location) {
     if ((listJobs.title.toLowerCase().includes(title)) && (listJobs.location.toLowerCase().includes(location))){
       searchResult.result.push(listJobs);
       searchResult.count += 1;
+      console.log(searchResult.result)
     }
   }
 }
 
-searchFunction("dev", "us")
-console.log(searchResult)
+let titleInput
 
-//PARTE 2:
-
-/*
-Al click del bottone, il codice deve raccogliere i valori dei due input e darli in pasto alla funzione che hai creato nella parte 1. 
-
-Dopo aver raccolto ed elaborato i dati, e’ il momento di mostrare i risultati sulla pagina: 
-    Puoi scegliere tu se utilizzare un semplice ul / li oppure una tabella 
-    Vai passo per passo e usa molti console.log per capire eventualmente dove sbagli
-    SUGGERIMENTO: ti servira’ un ciclo for!
-*/
-
-let titleInput = document.getElementById("title_search")
-titleInput.addEventListener("keydown", (event) => {
-  console.log (event.key)
-})
-
-let locationInput = document.getElementById("location_search")
-locationInput.addEventListener("keydown", (event) => {
-  console.log (event.key)
-})
+let locationInput
 
 let searchButton = document.getElementById("button_search")
-searchButton.addEventListener("click", () => {
-  console.log ("Ho cliccato il pulsante!")
-})
+searchButton.addEventListener("click", function(){
+  console.log("Ricerca avviata!");
+  titleInput = document.getElementById("title_search").value;
+  locationInput = document.getElementById("location_search").value;
+  searchFunction(titleInput, locationInput)
+  showFinalResult()
+});
+
+
+function showFinalResult (){
+let showResult = document.createElement("li")
+showResult.innerText = "qui devono apparire i risultati della ricerca, loop di tag li?"
+let myParent = document.getElementById("divhomepage");
+myParent.appendChild(showResult);
+}
