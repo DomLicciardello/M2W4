@@ -148,14 +148,18 @@ searchButton.addEventListener("click", function(){
   console.log("Ricerca avviata!");
   titleInput = document.getElementById("title_search").value;
   locationInput = document.getElementById("location_search").value;
-  searchFunction(titleInput, locationInput)
-  showFinalResult()
+  searchFunction(titleInput, locationInput);
+  showFinalResult();
 });
 
 
 function showFinalResult (){
-let showResult = document.createElement("li")
-showResult.innerText = "qui devono apparire i risultati della ricerca, loop di tag li?"
+for (let i = 0; i < searchResult.result.length; i++) {
+  const listResult = searchResult.result[i].title + searchResult.result[i].location;
+let showResult = document.createElement("li");
+showResult.innerText = listResult;
+showResult.id = "idShowResult";
 let myParent = document.getElementById("divhomepage");
 myParent.appendChild(showResult);
+}
 }
